@@ -9,7 +9,6 @@
     <body id="a">
       <div class="clockbox"></div>
       <div id="CountdownDisplay" class="clock" onload="showTime()"></div>
-      <div id="test" class="btn" onclick="update_test()">TEST</div>
     </body>
 
     <script type="text/javascript">
@@ -76,23 +75,15 @@
         document.getElementById("CountdownDisplay").innerText = time;
         document.getElementById("CountdownDisplay").textContent = time;
 
-        if (timeDiff > 0) {
-          var flower = flowers[test];
-          change_image(flower);
-        }
-        else {
-          change_image("winter-flower.png");
-        }
+        if (timeDiff > 0) { change_image(flowers[40 - days]); }
+        else { change_image("winter-flower.png"); }
+
         setTimeout(showTime, 1000);
 
       }
 
       function change_image(name_img){
         document.getElementById("a").style.backgroundImage="url(flowers/" + name_img + ")";
-      }
-      function update_test(){
-        test += 1;
-        document.getElementById("test").innerText = test;
       }
 
       showTime();
