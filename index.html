@@ -14,11 +14,10 @@
 
     <script type="text/javascript">
       const flowers = [ // 41 flowers
-        "winter-flower.png",
-        "IMG_20231230_115139.jpg",
         "IMG_20231231_112728.jpg",
         "IMG_20231231_112743.jpg",
         "IMG_20240210_160251.jpg",
+        "IMG_20231230_115139.jpg",
         "IMG_20240303_124938.jpg",
         "IMG_20240303_124950.jpg",
         "IMG_20240303_125005.jpg",
@@ -45,16 +44,17 @@
         "IMG-20240317-WA0058.jpg",
         "IMG-20240317-WA0059.jpg",
         "IMG-20240317-WA0060.jpg",
+        "IMG_20231227_151341.jpg",
+        "IMG_20231230_114318.jpg",
+        "IMG_20231230_115031.jpg",
+        "IMG_20231230_115119.jpg",
         "A.jpg",
         "B.jpg",
         "C.jpg",
         "D.jpg",
         "E.jpg",
         "F.jpg",
-        "IMG_20231227_151341.jpg",
-        "IMG_20231230_114318.jpg",
-        "IMG_20231230_115031.jpg",
-        "IMG_20231230_115119.jpg",
+        "winter-flower.png",
       ]
       var test = 0;
       var timeArrival = 1714194300000; // arrival
@@ -76,12 +76,12 @@
         document.getElementById("CountdownDisplay").innerText = time;
         document.getElementById("CountdownDisplay").textContent = time;
 
-        if (timeDiff < 0) {
-          change_image("winter-flower.png");
-        }
-        else {
+        if (timeDiff > 0) {
           var flower = flowers[test];
           change_image(flower);
+        }
+        else {
+          change_image("winter-flower.png");
         }
         setTimeout(showTime, 1000);
 
