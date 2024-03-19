@@ -42,4 +42,7 @@ const flowers = [ // 41 flowers
   "winter-flower.png",
 ]
 const timeEnd = 1714176300000; // arrival
-const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+const oneSecond = 1000; // milliseconds
+const oneMinute = 60 * oneSecond;
+const oneHour = 60 * oneMinute;
+const oneDay = 24 * oneHour;
