@@ -13,7 +13,7 @@ function showTime(){
     s = (s < 10) ? "0" + s : s;
 
     display = days + " days " + h + ":" + m + ":" + s;
-    change_image(flowers[40 - days]);
+    change_image(flowers[test]);
   }
   else {
     display = "";
@@ -28,6 +28,10 @@ function showTime(){
 
 function change_image(name_img){
   document.getElementById("mainBody").style.backgroundImage="url(flowers/" + name_img + ")";
+}
+function update_test(){
+  test += 1;
+  document.getElementById("test").innerText = test + " : " + flowers[test];
 }
 
 showTime();

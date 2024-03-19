@@ -2,7 +2,9 @@ const flowers = [ // 41 flowers
   "IMG_20231231_112728.jpg",
   "IMG_20231231_112743.jpg",
   "IMG_20240210_160251.jpg",
-  "IMG_20231230_115139.jpg",
+  "IMG_20240319_164407.jpg",
+  "IMG-20240229-WA0001.jpg",
+  "IMG-20240311-WA0094.jpg",
   "IMG_20240303_124938.jpg",
   "IMG_20240303_124950.jpg",
   "IMG_20240303_125005.jpg",
@@ -13,11 +15,9 @@ const flowers = [ // 41 flowers
   "IMG-20240218-WA0040.jpg",
   "IMG-20240224-WA0016.jpg",
   "IMG-20240225-WA0003.jpg",
-  "IMG-20240229-WA0001.jpg",
   "IMG-20240303-WA0026.jpg",
   "IMG-20240306-WA0065.jpg",
   "IMG-20240307-WA0009.jpg",
-  "IMG-20240311-WA0094.jpg",
   "IMG-20240315-WA0006.jpg",
   "IMG-20240315-WA0015.jpg",
   "IMG-20240315-WA0023.jpg",
@@ -46,3 +46,5 @@ const oneSecond = 1000; // milliseconds
 const oneMinute = 60 * oneSecond;
 const oneHour = 60 * oneMinute;
 const oneDay = 24 * oneHour;
+
+var test = 40 - Math.floor((timeEnd - Date.now()) / oneDay);
