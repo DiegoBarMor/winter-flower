@@ -47,4 +47,19 @@ const oneMinute = 60 * oneSecond;
 const oneHour = 60 * oneMinute;
 const oneDay = 24 * oneHour;
 
+const deco_dt = 16.66; // milliseconds it takes to update the decoration's position
+const deco_dx_max = 3.0; // max value for deco_dx
+const deco_dy_max = 3.0; // max value for deco_dy
+const deco_change_wait_max = 5000; // max value for deco_change_wait
+const deco_change_wait_init = 2000; // value for deco_change_wait in the first timeOut
+const deco_chance_stationary = 0.2; // probability that in a setRandomDisplacements call, deco_dx and deco_dy are set to 0
+
+var deco_firstCycle = true; //
+var deco_dx = 0; //
+var deco_dy = 0; //
+var deco_change_wait = deco_change_wait_init; // milliseconds it takes to call setRandomDisplacements and change deco_dx and deco_dy
+
+var timeout_updatePos;
+var timeout_setRandomDisplacements;
+
 var test = 40 - Math.floor((timeEnd - Date.now()) / oneDay);
