@@ -7,8 +7,8 @@ function toggleDecoration(event){
     var y = event.clientY - rect.height / 2;
 
     // clamp coordinates to be inside the screen
-    x = Math.max(0, Math.min(x, window.innerWidth - rect.width));
-    y = Math.max(0, Math.min(y, window.innerHeight - rect.height));
+    x = Math.max(0, Math.min(x, window.innerWidth - rect.width - 1));
+    y = Math.max(0, Math.min(y, window.innerHeight - rect.height - 1));
     startDecoration(x, y);
   }
   else {
