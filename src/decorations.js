@@ -1,21 +1,42 @@
-function resetDecoration(){
-  // reset deco_* variables
-  deco_firstCycle = true;
-  deco_dx = 0; //
-  deco_dy = 0; //
-  deco_change_wait = deco_change_wait_init;
+function toggleDecoration(event){
+  deco_active = !deco_active;
+  if (deco_active) {
+    // set initial coordinates to the adjusted position of the touch event
+    var rect = document.getElementById("butterfly").getBoundingClientRect();
+    var x = event.clientX - rect.width / 2;
+    var y = event.clientY - rect.height / 2;
+
+    // clamp coordinates to be inside the screen
+    x = Math.max(0, Math.min(x, window.innerWidth - rect.width));
+    y = Math.max(0, Math.min(y, window.innerHeight - rect.height));
+    startDecoration(x, y);
+  }
+  else {
+    stopDecoration();
+  }
+}
+
+function startDecoration(x,y) {
+  document.getElementById("butterfly").style.left = x + "px";
+  document.getElementById("butterfly").style.top = y + "px";
+  document.getElementById("butterfly").style.visibility = "visible";
+
+  setTimeout(setRandomDisplacements, deco_change_wait_init);
+  updatePos();
+}
+
+function stopDecoration() {
+  document.getElementById("butterfly").style.visibility = "hidden";
 
   // clear old timeouts
   clearTimeout(timeout_updatePos);
   clearTimeout(timeout_setRandomDisplacements);
 
-  //
-  document.getElementById("butterfly").style.left = 0 + "px";
-  document.getElementById("butterfly").style.top = 0 + "px";
-
-  document.getElementById("butterfly").style.visibility = "visible";
-  setTimeout(setRandomDisplacements, deco_change_wait_init);
-  updatePos();
+  // reset deco variables
+  deco_firstCycle = true;
+  deco_dx = 0; //
+  deco_dy = 0; //
+  deco_change_wait = deco_change_wait_init;
 }
 
 function updatePos(){
@@ -28,6 +49,7 @@ function updatePos(){
 
   document.getElementById("butterfly").style.left = new_left + "px";
   document.getElementById("butterfly").style.top = new_top + "px";
+  document.getElementById("butterfly").style.transform = deco_dx < 0 ? "scaleX(-1)" : "";
 
   timeout_updatePos = setTimeout(updatePos, deco_dt);
 }
@@ -43,13 +65,15 @@ function setRandomDisplacements(){
     deco_dx = deco_dx_max * r_dx;
     deco_dy = deco_dy_max * r_dy;
   }
+  else {
+    deco_dx = 0;
+    deco_dy = 0;
+  }
 
   deco_firstCycle = false;
   deco_change_wait = deco_change_wait_max * r_wait;
   timeout_setRandomDisplacements = setTimeout(setRandomDisplacements, deco_change_wait);
 }
 
-document.getElementById("butterfly").style.visibility = "hidden";
-
-// setRandomDisplacements();
-// updatePos()
+stopDecoration();
+document.addEventListener("click", toggleDecoration);

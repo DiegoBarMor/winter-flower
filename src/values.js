@@ -54,10 +54,11 @@ const deco_change_wait_max = 5000; // max value for deco_change_wait
 const deco_change_wait_init = 2000; // value for deco_change_wait in the first timeOut
 const deco_chance_stationary = 0.2; // probability that in a setRandomDisplacements call, deco_dx and deco_dy are set to 0
 
-var deco_firstCycle = true; //
-var deco_dx = 0; //
-var deco_dy = 0; //
+var deco_firstCycle = true; // whether it's the first time calling setRandomDisplacements
+var deco_dx = 0; // rate of change on the X position
+var deco_dy = 0; // rate of change on the Y position
 var deco_change_wait = deco_change_wait_init; // milliseconds it takes to call setRandomDisplacements and change deco_dx and deco_dy
+var deco_active = false; // whether the decoration is currently active
 
 var timeout_updatePos;
 var timeout_setRandomDisplacements;
