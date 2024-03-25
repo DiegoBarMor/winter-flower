@@ -1,18 +1,22 @@
-function toggleDecoration(event){
+function toggleDecoration(){
   deco_active = !deco_active;
+  var btn = document.getElementById("toggleDeco");
+
   if (deco_active) {
     // set initial coordinates to the adjusted position of the touch event
     var rect = document.getElementById("butterfly").getBoundingClientRect();
-    var x = event.clientX - rect.width / 2;
-    var y = event.clientY - rect.height / 2;
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
 
     // clamp coordinates to be inside the screen
     x = Math.max(0, Math.min(x, window.innerWidth - rect.width - 1));
     y = Math.max(0, Math.min(y, window.innerHeight - rect.height - 1));
     startDecoration(x, y);
+    btn.innerText = "Hide Butterfly";
   }
   else {
     stopDecoration();
+    btn.innerText = "Show Butterfly";
   }
 }
 
@@ -75,5 +79,4 @@ function setRandomDisplacements(){
   timeout_setRandomDisplacements = setTimeout(setRandomDisplacements, deco_change_wait);
 }
 
-stopDecoration();
-document.addEventListener("click", toggleDecoration);
+toggleDecoration();

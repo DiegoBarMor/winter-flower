@@ -34,3 +34,9 @@ body {
   top: 25%;
   left: 25%;
 }
+.toggle-deco {
+  position: absolute;
+  width: 80%;
+  bottom: 0%;
+  left: 10%;
+}
